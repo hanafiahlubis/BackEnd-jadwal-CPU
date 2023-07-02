@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jadwal CPU - SFJ</title>
+    <style>
+      /* Tambahkan CSS Anda di sini */
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jadwal CPU - SFJ</h1>
+    <form id="processForm">
+      <label for="processInput">Proses:</label>
+      <input type="text" id="processInput" required />
+      <label for="arrivalTimeInput">Arrival Time:</label>
+      <input type="number" id="arrivalTimeInput" required />
+      <label for="burstTimeInput">Waktu Burst:</label>
+      <input type="number" id="burstTimeInput" required />
+      <button type="submit">Tambahkan Proses</button>
+      <button type="button" onclick="scheduleProcesses()">
+        Jadwalkan Proses
+      </button>
+    </form>
+    <table id="scheduleTable">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Proses</th>
+          <th>Arrival Time</th>
+          <th>Waktu Burst</th>
+          <th>Waktu Tunggu</th>
+        </tr>
+      </thead>
+      <tbody id="scheduleTableBody"></tbody>
+    </table>
+    <p>Waktu Tunggu Rata-rata: <span id="averageWaitingTime"></span></p>
+    <p>Waktu Putar Rata-rata: <span id="averageTurnaroundTime"></span></p>
+
+    <script src="./script2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jadwal CPU - Priority Scheduling</title>
+    <style>
+      /* Tambahkan CSS Anda di sini */
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Jadwal CPU - Priority Scheduling</h1>
+    <form id="processForm">
+      <label for="processInput">Proses:</label>
+      <input type="text" id="processInput" required />
+      <label for="burstTimeInput">Waktu Burst:</label>
+      <input type="number" id="burstTimeInput" required />
+      <label for="priorityInput">Prioritas:</label>
+      <input type="number" id="priorityInput" required />
+      <button type="submit">Tambahkan Proses</button>
+      <button type="button" onclick="scheduleProcesses()">
+        Jadwalkan Proses
+      </button>
+    </form>
+    <table id="scheduleTable">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Proses</th>
+          <th>Waktu Burst</th>
+          <th>Prioritas</th>
+          <th>Waktu Tunggu</th>
+        </tr>
+      </thead>
+      <tbody id="scheduleTableBody"></tbody>
+    </table>
+    <p>Waktu Tunggu Rata-rata: <span id="averageWaitingTime"></span></p>
+
+    <script src="./script3.js"></script>
+  </body>
+</html>

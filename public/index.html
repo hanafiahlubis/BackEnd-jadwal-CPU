@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Penjadwalan CPU - Round Robin</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <h1>Penjadwalan CPU - Round Robin</h1>
+    <form id="process-form">
+      <div class="form-group">
+        <label for="time-quantum">Time Quantum:</label>
+        <input type="number" id="time-quantum" min="1" required />
+      </div>
+      <div id="processes-group">
+        <div class="form-group">
+          <label for="process-name">Nama Proses:</label>
+          <input type="text" class="process-name" required />
+          <label for="burst-time">Waktu Burst:</label>
+          <input type="number" class="burst-time" min="1" required />
+        </div>
+      </div>
+      <button id="add-process">Tambah Proses</button>
+      <button type="submit">Jadwalkan</button>
+    </form>
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
