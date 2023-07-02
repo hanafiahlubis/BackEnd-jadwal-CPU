@@ -14,7 +14,7 @@ function calculateAverageWaitingTime(schedule) {
 
 
 function getSchedule() {
-    fetch('/schedule-priority')
+    fetch('/api/schedule-priority')
         .then((response) => response.json())
         .then((schedule) => {
             console.log(schedule)
@@ -50,7 +50,7 @@ function getSchedule() {
 }
 
 function addProcess(process, burstTime, priority) {
-    fetch('/schedule-priority', {
+    fetch('/api/schedule-priority', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ function addProcess(process, burstTime, priority) {
 }
 
 function scheduleProcesses() {
-    fetch('/schedule-priority/schedule', {
+    fetch('/api/schedule-priority/schedule', {
         method: 'POST',
     })
         .then((response) => {

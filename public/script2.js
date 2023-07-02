@@ -59,7 +59,7 @@ function updateAverageTimes(averageWaitingTime, averageTurnaroundTime) {
 }
 
 function getSchedule() {
-    fetch('/schedule-sfj')
+    fetch('/api/schedule-sfj')
         .then(response => response.json())
         .then(schedule => {
             const averageWaitingTime = calculateAverageWaitingTime(schedule);
@@ -74,7 +74,7 @@ function getSchedule() {
 }
 
 function addProcess(process, arrivalTime, burstTime) {
-    fetch('/schedule-sfj', {
+    fetch('/api/schedule-sfj', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ function addProcess(process, arrivalTime, burstTime) {
 }
 
 function scheduleProcesses() {
-    fetch('/schedule-sfj/schedule', {
+    fetch('/api/schedule-sfj/schedule', {
         method: 'POST'
     })
         .then(response => {

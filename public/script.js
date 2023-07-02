@@ -56,7 +56,7 @@ function schedule(event) {
 
     const timeQuantum = parseInt(timeQuantumInput.value);
 
-    fetch('/schedule-RR', {
+    fetch('/api/schedule-RR', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
