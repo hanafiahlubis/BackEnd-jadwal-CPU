@@ -4,11 +4,11 @@ const app = express();
 app.use(urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(json());
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+app.get('/api/', (req, res) => {
+    res.sendFile(__dirname + 'public/index.html');
 });
 
-app.post('/schedule-RR', (req, res) => {
+app.post('/api/schedule-RR', (req, res) => {
     console.log(req.body);
     const processes = req.body.processes;
     const timeQuantum = parseInt(req.body.timeQuantum);
@@ -84,11 +84,11 @@ function calculateAverageTurnaroundTime(schedule) {
     return totalTurnaroundTime / schedule.length;
 }
 
-app.get('/schedule-sfj', (req, res) => {
+app.get('/api/schedule-sfj', (req, res) => {
     res.json(cpuSchedule);
 });
 
-app.post('/schedule-sfj', (req, res) => {
+app.post('/api/schedule-sfj', (req, res) => {
     console.log(req.body);
     const { process, arrivalTime, burstTime } = req.body;
     const newProcess = {
@@ -105,7 +105,7 @@ app.post('/schedule-sfj', (req, res) => {
 
 let cpuSchedule2 = [];
 
-app.post('/schedule-priority', (req, res) => {
+app.post('/api/schedule-priority', (req, res) => {
     console.log(req.body);
     const process = req.body.process;
     const burstTime = req.body.burstTime;
@@ -115,7 +115,7 @@ app.post('/schedule-priority', (req, res) => {
     res.status(201).json({ message: 'Proses ditambahkan ke jadwal CPU' });
 });
 
-app.get('/schedule-priority', (req, res) => {
+app.get('/api/schedule-priority', (req, res) => {
     cpuSchedule2.forEach((process, index) => {
         const waitingTime = index === 0 ? 0 : cpuSchedule2[index - 1].waitingTime + cpuSchedule2[index - 1].burstTime;
         process.waitingTime = waitingTime;
@@ -131,7 +131,7 @@ class Task {
     }
 }
 
-app.post('/fcfs', (req, res) => {
+app.post('/api/fcfs', (req, res) => {
     const tasks = req.body.tasks.map(task => new Task(task.arrivalTime, task.executionTime));
 
     let currentTime = 0; // Waktu saat ini
