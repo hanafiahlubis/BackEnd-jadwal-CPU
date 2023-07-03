@@ -1,6 +1,8 @@
 import express from 'express';
-const app = express();
 
+import cors from "cors";
+const app = express();
+app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 import path from "path";
 import { fileURLToPath } from "url";
