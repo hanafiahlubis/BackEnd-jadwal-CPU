@@ -1,13 +1,13 @@
 import express from 'express';
 const app = express();
 
-app.use(urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 import path from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "public")));
-app.use(json());
+app.use(express.json());
 app.get('/api/', (req, res) => {
     res.sendFile(__dirname + 'public/index.html');
 });
